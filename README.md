@@ -18,23 +18,23 @@ Este es el repositorio de la práctica 3 de IPM, curso 2021/22.
   > momento de darte de alta en _github classroom_.
   
   
-  * Grupo: p.e. IPM.11
-  * Horario: p.e. 12:30
+  * Grupo: IPM.21
+  * Horario: 08:30
   
-  * Nombre:
-  * Apellidos:
-  * Login UDC: _cuenta corporativa de la udc (sin `@udc.es`, no es la dirección de email)_
-  * Login Github: _cuenta en github que se usa para las prácticas de la asignatura_
+  * Nombre: Brais
+  * Apellidos: Campaña Martínez
+  * Login UDC: brais.campana
+  * Login Github: BraisCampana
   
-  * Nombre:
-  * Apellidos:
-  * Login UDC:
-  * Login Github:
+  * Nombre: Anxo
+  * Apellidos: Freire Balea
+  * Login UDC: anxo.freire
+  * Login Github: anxo-freire
 
-  * Nombre:
-  * Apellidos:
-  * Login UDC:
-  * Login Github:
+  * Nombre: David
+  * Apellidos: Gayoso Salvado
+  * Login UDC: david.gsalvado
+  * Login Github: davidgsalvado
 
 
 ## Enunciado
