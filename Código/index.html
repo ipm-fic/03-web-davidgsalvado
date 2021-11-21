@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+    <!--Viewport define el área visible de una página web para controlar las dimensiones de la página y el escalado.-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <!--Initial scale is 1 (no zoom)-->
+    <meta name="description" content="Práctica 3">
+    <meta name="author" content="Brais Campaña Martínez & Anxo Freire Balea & David Gayoso Salvado">
+    <title>COVID-19 Web</title>
+</head>
+<body>
+    <div id = "login-form">
+        <header>
+            <h1 id="titulo">Login App Web del COVID-19</h1>
+            <hr>
+        </header>
+        <section id = "form-section">
+            <h2 id = "inicio-sesión">Inicio de sesión</h2>
+            <form id= "formpost" action="perfil.html">
+                <label for="username-formpost">Usuario*</label><br>
+                <input type="text" id="username-formpost" aria-label="Login" placeholder="Usuario"><br>
+                <span id = "span-usuario"></span><br>
+                <br>
+                <label for="password-formpost">Contraseña*</label><br>
+                <input type="password" id="password-formpost" placeholder="Contraseña"><br>
+                <span id = "span-password"></span>
+                <br><br>
+                <input type="checkbox" id="checkbox-formpost"/>Mostrar contraseña
+                <br><br>
+                <button type="submit" id = "submit-login">
+                    <img src="img/send.jpg" alt="send" width="15" height="15">
+                    Login
+                </button><br>
+                <p id = "login-error"></p>
+            </form>
+        </section>
+        <section id = "registro">
+            <hr> 
+            <h2 id = "registro-title">Registro</h2>
+            <p id="crear-cuenta">Si no tienes una cuenta, crea una aquí</p>
+            <a href="registro.html">Regístrate</a>
+        </section>
+    </div>
+    <!--<script type="module" src="auxFunctions.js"></script>-->
+    <script src="server.js"></script>
+</body>
+</html>

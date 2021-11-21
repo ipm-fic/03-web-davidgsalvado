@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+    <!--Viewport define el área visible de una página web para controlar las dimensiones de la página y el escalado.-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <!--Initial scale is 1 (no zoom)-->
+    <meta name="description" content="Práctica 3">
+    <meta name="author" content="Brais Campaña Martínez & Anxo Freire Balea & David Gayoso Salvado">
+    <title>Registro COVID-19 Web</title>
+</head>
+<body>
+    <div id = "registro-form">
+        <header>
+            <h1 id="titulo">Registro App Web del COVID-19</h1>
+            <hr>
+        </header>
+        <section id = "registro-form-section">
+            <h2 id = "registro-form-title">Registro</h2>
+            <form id = "registropost" action="index.html">
+                <label for="nombre-registro">Nombre</label><br>
+                <input type="text" id = "nombre-registro"><br>
+                <span id= "span-nombre"></span><br><br>
+
+                <label for="apellido-registro">Apellido</label><br>
+                <input type="text" id = "apellido-registro"><br>
+                <span id = "span-apellido"></span><br><br>
+
+                <label for = "email-registro">Email</label><br>
+                <input type = "email" id = "email-registro" placeholder="pepe@gmail.com"><br>
+                <span id = "span-email"></span><br><br>
+
+                <label for = "telefono-registro">Teléfono</label><br>
+                <input type = "tel" id = "telefono-registro" placeholder="634440760"><br>
+                <span id = "span-telefono"></span><br><br>
+                
+                <label for = "usuario-registro">Usuario</label><br>
+                <input type = "text" id = "usuario-registro" placeholder="pepe10"><br>
+                <span id = "span-usuario"></span><br><br>
+
+                <label for = "password-registro">Contraseña</label><br>
+                <input type = "password" id = "password-registro"><br>
+                <span id = "span-password"></span><br><br>
+                <input type="checkbox" id="checkbox-registro"/>Mostrar contraseña<br><br>
+
+                <button type="submit" id = "submit-registro">Registrarse</button>
+                <p id = "registro-error"></p>
+            </form>
+        </section>
+    </div>
+    <script src = "registro.js"></script>
+</body>
+</html>
