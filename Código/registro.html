@@ -16,7 +16,7 @@
         </header>
         <section id = "registro-form-section">
             <h2 id = "registro-form-title">Registro</h2>
-            <form id = "registropost" action="index.html">
+            <form id = "registropost">
                 <label for="nombre-registro">Nombre</label><br>
                 <input type="text" id = "nombre-registro"><br>
                 <span id= "span-nombre"></span><br><br>
@@ -32,10 +32,15 @@
                 <label for = "telefono-registro">Teléfono</label><br>
                 <input type = "tel" id = "telefono-registro" placeholder="634440760"><br>
                 <span id = "span-telefono"></span><br><br>
+
+                <label for = "vacunado-registro-si">Vacunado/a</label>
+                <input type="radio" id = "vacunado-registro-si" value="Sí" name = "vacunado" checked>Sí
+                <input type="radio" id="vacunado-registro-no" value="No" name = "vacunado">No<br><br>
                 
                 <label for = "usuario-registro">Usuario</label><br>
                 <input type = "text" id = "usuario-registro" placeholder="pepe10"><br>
-                <span id = "span-usuario"></span><br><br>
+                <span id = "span-usuario"></span><br>
+                <p id = "usuario-existente"></p>
 
                 <label for = "password-registro">Contraseña</label><br>
                 <input type = "password" id = "password-registro"><br>
@@ -47,6 +52,6 @@
             </form>
         </section>
     </div>
-    <script src = "registro.js"></script>
+    <script src = "registro.js" type="module"></script>
 </body>
 </html>

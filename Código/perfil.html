@@ -7,7 +7,6 @@
     <meta name="description" content="Práctica 3">
     <meta name="author" content="Brais Campaña Martínez & Anxo Freire Balea & David Gayoso Salvado">
     <title>Perfil</title>
-    <script src="qrcode.min.js"></script>
 </head>
 <body>
     <div id = "perfil-page">
@@ -22,14 +21,13 @@
             <span>&nbsp;&nbsp;&nbsp;</span>
             <button id = "logout-button" type= "button">Logout</button><br><br>
         </section>
-        <section id ="perfil-qr" class = "perfil">
-            <hr>
-        </section>
+        <hr>
         <section id ="perfil-detalles" class = "perfil">
             <h3>Detalles de usuario</h3>
             <p id = "perfil-email">Email</p>
             <p id = "perfil-telefono">Teléfono</p>
             <p id = "perfil-login">Login</p>
+            <p id = "perfil-vacunado">Vacunado/a</p>
             <hr>
         </section>
         <section id="perfil-eventos" class = "perfil">
@@ -41,13 +39,35 @@
                     <th>Hora</th>
                 </tr>
                 <tr>
-                    <td>Biblioteca Claudia Alonso</td>
-                    <td>20-10-2021</td>
-                    <td>17:00:00</td>
+                    <td class="nombre"></td>
+                    <td class="fecha"></td>
+                    <td class="hora"></td>
+                </tr>  
+                <tr>
+                    <td class="nombre"></td>
+                    <td class="fecha"></td>
+                    <td class="hora"></td>
+                </tr>
+                <tr>
+                    <td class="nombre"></td>
+                    <td class="fecha"></td>
+                    <td class="hora"></td>
+                </tr>
+                <tr>
+                    <td class="nombre"></td>
+                    <td class="fecha"></td>
+                    <td class="hora"></td>
+                </tr>
+                <tr>
+                    <td class="nombre"></td>
+                    <td class="fecha"></td>
+                    <td class="hora"></td>
                 </tr>
             </table>
+            <p id ="perfil-errores"></p>
         </section>
     </div>
-    <script src="perfil.js" type="text/javascript"></script>
+    <script src="VanillaQR.min.js"></script>
+    <script src="perfil.js" type="module"></script>
 </body>
 </html>
