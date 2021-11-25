@@ -115,9 +115,16 @@ registroForm.addEventListener('submit', (event) => {
                 'x-hasura-admin-secret': 'myadminsecretkey'
             },
             body: JSON.stringify(data),
+        }).then(response => {
+            if(!response.ok){
+                document.querySelector("#span-usuario").innerHTML = "El usuario introducido ya existe, por favor introduce un usuario diferente";
+            }else{
+                location.replace("http://localhost:8000/index.html");
+            }
         })
         .catch(error => {
             document.querySelector("p#registro-error").innerHTML = "No se puede conectar con el servidor";
         });
+        event.preventDefault();
     }
 });
