@@ -1,7 +1,6 @@
 import * as lib from './auxFunctions.js';
 
 const registroForm = document.querySelector("form#registropost");
-const passwordSpan = document.querySelector("#span-password");
 const password = document.querySelector("#password-registro");
 
 document.querySelector("#checkbox-registro").addEventListener('click', function(){
@@ -117,6 +116,8 @@ registroForm.addEventListener('submit', (event) => {
             },
             body: JSON.stringify(data),
         })
-        .catch(error => document.querySelector("p#registro-error").innerHTML = "No se puede conectar con el servidor");
+        .catch(error => {
+            document.querySelector("p#registro-error").innerHTML = "No se puede conectar con el servidor";
+        });
     }
 });

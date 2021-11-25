@@ -1,6 +1,8 @@
+const passwordSpan = document.querySelector("#span-password");
+
 export function isEmpty(str){
     return !str.trim().length;
-  }
+}
 
 function handleErrors(response) {
     alert(response.status);
