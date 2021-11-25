@@ -6,6 +6,10 @@ logout.addEventListener('click', (event) => {
     location.href = "index.html";
 });
 
+document.querySelector("#button-events").addEventListener('click', (event) =>{
+    getEvents();
+})
+
 window.onload = function(){
     document.querySelector("#perfil-nombre").innerHTML = sessionStorage.getItem("name");
     document.querySelector("#perfil-apellido").innerHTML = sessionStorage.getItem("surname");
@@ -25,7 +29,18 @@ function createQr(){
 }
 
 function getEvents(){
-    fetch('http://localhost:8080/api/rest/user_access_log/' + sessionStorage.getItem("uuid")+"?offset=0&limit=5",{
+    var numEvents = document.querySelector("#table-rows").value;
+    var limit = 5;
+    var myTable = document.querySelector("#table-eventos");
+    var rowCount = myTable.rows.length;
+    if (numEvents.trim().length > 0 && parseInt(numEvents) > 0 && parseInt(numEvents) != limit){
+        limit = numEvents;
+    }
+    for(var x = 1; x < rowCount; x++){
+        document.querySelector("#row"+ x.toString()).remove();
+    }
+    rowCount = 1;
+    fetch('http://localhost:8080/api/rest/user_access_log/' + sessionStorage.getItem("uuid")+"?offset=0&limit="+ limit.toString(),{
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -39,16 +54,16 @@ function getEvents(){
         if(responseJSON["access_log"].length === 0){
             document.querySelector("#perfil-errores").innerHTML = "Este usuario no ha visitado ningún evento";
         }else{
-            var filasNombre = document.querySelectorAll(".nombre");
-            var filasFecha = document.querySelectorAll(".fecha");
-            var filasHora = document.querySelectorAll(".hora");
+            var row;
             for(var i = 0; i < responseJSON["access_log"].length; i++){
                 var aux = responseJSON["access_log"][i]["timestamp"].toString();
                 var fecha = aux.split("T")[0].split("-")[2] + "-"+aux.split("T")[0].split("-")[1] + "-"+aux.split("T")[0].split("-")[0];
                 var hora = aux.split("T")[1].split(".")[0].split("+")[0];
-                filasNombre[i].innerHTML = responseJSON["access_log"][i]["facility"]["name"];
-                filasFecha[i].innerHTML = fecha;
-                filasHora[i].innerHTML = hora;
+                row = myTable.insertRow(rowCount);
+                row.insertCell(0).innerHTML = responseJSON["access_log"][i]["facility"]["name"];
+                row.insertCell(1).innerHTML = fecha;
+                row.insertCell(2).innerHTML = hora;
+                row.id = "row" + (i+1).toString();
             }
         }
     })
