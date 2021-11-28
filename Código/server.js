@@ -35,23 +35,27 @@ document.querySelector('form#formpost').addEventListener('submit', (event) => {
 
   var login = document.querySelector("#username-formpost").value;
   var password = document.querySelector("#password-formpost").value;
-  
+
   if(lib.isEmpty(login)){
     userSpan.innerHTML = "Introduce un nombre de usuario";
+    document.querySelector("#username-formpost").className= "invalid";
     if(lib.isEmpty(password)){
         passwordSpan.innerHTML = "Introduce una contraseña";
+        document.querySelector("#password-formpost").className = "invalid";
     }else{
       passwordSpan.innerHTML = "&nbsp;";
-      //checkPassword(password);
+      document.querySelector("#password-formpost").className = "valid";
     }
     event.preventDefault(); 
   }else{
     userSpan.innerHTML = "&nbsp;";
+    document.querySelector("#username-formpost").className = "valid";
     if(!lib.isEmpty(password)){   
       passwordSpan.innerHTML = "&nbsp;";
-      //checkPassword(password); 
+      document.querySelector("#password-formpost").className = "valid";
     }else{
         passwordSpan.innerHTML = "Introduce una contraseña";
+        document.querySelector("#password-formpost").className = "invalid";
     }
     event.preventDefault();
   }

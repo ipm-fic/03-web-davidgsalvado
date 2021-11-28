@@ -1,0 +1,131 @@
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+    background-image: url('../img/background-login.jpg');
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+ 
+div#login-form{
+    width: 100%;
+}
+
+h1, h2{
+    font-family: 'Allerta Stencil', sans-serif;
+    font-weight: normal;
+}
+
+section span{
+    font-family: 'Arial Narrow Bold', sans-serif;
+    font-weight: normal;
+    font-size: 0.9em;
+    color: red;
+    float: left;
+}
+
+p#login-error{
+    font-family: 'Arial Narrow Bold', sans-serif;
+    font-weight: normal;
+    font-size: 1em;
+    color: red;
+}
+
+header {
+    background-color: #444;
+}
+
+header nav{
+    height: 5em;
+}
+
+header nav h1{
+    margin-top: 0;
+    padding: 1em 0 0 1em;
+    color: tomato;
+    font-size: 1.5em;
+    float: left;
+    display: inline;
+    text-align: center;
+}
+
+button{
+    font-size: 1.25em;
+    padding: 0.25em 0.5em; /*arriba-abajo // derecha-izquierda*/
+    background-color: white;
+    outline: none;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    text-align: center;
+    color: black;
+    border: 2px solid #008CBA;
+}
+
+button:hover {
+    background-color: #008CBA;
+    color: white;
+}
+
+section#form-section{
+    text-align: center;
+    border: 2px solid black;
+    margin: 4em 2em;
+    padding: 5% 10% 5% 10%;
+    background-color: gray;
+}
+
+section h2{
+    font-size: 2em;
+}
+
+input{
+    font-family: Georgia, sans-serif;
+    font-size: 1em;
+    background: transparent;
+    border: 0;
+    border-bottom: solid 1px black;
+    outline: none;
+    width: 100%;
+    color: black;
+}
+
+input::placeholder{
+    color: black;
+    font-size: 1.10em;
+}
+
+input:focus{
+    outline: 0;
+    color: black;
+    border-bottom-color: blue;
+}
+
+.invalid{ /*cuando los campos son inválidos, se les pone un borde rojo*/
+    border-bottom-color: red;
+    background-image: url('../img/not_valid.png');
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: right top;
+}
+
+.valid{
+    border-bottom-color: green;
+    background-image: url('../img/valid.png');
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: right top;
+}
+
+section input[type=checkbox]{
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+#checkbox-container, #checkbox-formpost{
+    vertical-align: middle;
+}

@@ -7,36 +7,38 @@
     <meta name="description" content="Práctica 3">
     <meta name="author" content="Brais Campaña Martínez & Anxo Freire Balea & David Gayoso Salvado">
     <title>COVID-19 Web</title>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
     <div id = "login-form">
         <header>
-            <h1 id="titulo">Login App Web del COVID-19</h1>
-            <hr>
+            <nav>
+                <h1 id="titulo"><b>Login COVID-19</b></h1>
+            </nav>
         </header>
         <section id = "form-section">
-            <h2 id = "inicio-sesión">Inicio de sesión</h2>
-            <form id= "formpost" action="perfil.html">
-                <label for="username-formpost">Usuario*</label><br>
-                <input type="text" id="username-formpost" aria-label="Login" placeholder="Usuario"><br>
+            <h2 id = "inicio-sesión"><b>Inicio de sesión</b></h2>
+            <img src="img/user_icon.png" alt="user_icon" id = "user" width="50" height="100">
+            <form id= "formpost" action="perfil.html" novalidate>
+                <!--<label for="username-formpost">Usuario*</label><br>-->
+                <input type="text" id="username-formpost" aria-label="Login" placeholder="Usuario*" required><br>
                 <span id = "span-usuario"></span><br>
                 <br>
-                <label for="password-formpost">Contraseña*</label><br>
-                <input type="password" id="password-formpost" placeholder="Contraseña"><br>
+                <!--<label for="password-formpost">Contraseña*</label><br>-->
+                <input type="password" id="password-formpost" placeholder="Contraseña*" required><br>
                 <span id = "span-password"></span>
-                <br><br>
-                <input type="checkbox" id="checkbox-formpost"/>Mostrar contraseña
+                <br>
+                <input type="checkbox" id="checkbox-formpost"/>
+                <label class="checkbox-container">Mostrar contraseña</label>
                 <br><br>
                 <button type="submit" id = "submit-login">
-                    <img src="img/send.jpg" alt="send" width="15" height="15">
+                    <img src="img/send.jpg" alt="send" id="send" width="15" height="20">
                     Login
                 </button><br>
                 <p id = "login-error"></p>
             </form>
-        </section>
-        <section id = "registro">
-            <hr> 
-            <h2 id = "registro-title">Registro</h2>
+            <hr>
+            <!--<h2 id = "registro-title"><b>Registro</b></h2>-->
             <p id="crear-cuenta">Si no tienes una cuenta, crea una aquí</p>
             <a href="registro.html">Regístrate</a>
         </section>
