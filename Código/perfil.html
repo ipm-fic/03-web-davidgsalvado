@@ -7,43 +7,47 @@
     <meta name="description" content="Práctica 3">
     <meta name="author" content="Brais Campaña Martínez & Anxo Freire Balea & David Gayoso Salvado">
     <title>Perfil</title>
+    <link rel="stylesheet" href="css/perfil.css">
 </head>
 <body>
     <div id = "perfil-page">
         <header>
-            <h1 id="perfil-title">Perfil</h1>
-            <hr>
+            <nav>
+                <div class="navbar">
+                    <h1 id="perfil-title">Perfil</h1>
+                    <section id = "logout" class = "perfil">
+                        <span id ="perfil-nombre">Nombre</span>
+                        <span>&nbsp;&nbsp;&nbsp;</span>
+                        <span id ="perfil-apellido">Apellido</span>
+                        <span>&nbsp;&nbsp;&nbsp;</span>
+                        <button id = "logout-button" type= "button">Logout</button><br><br>
+                    </section>
+                </div>
+            </nav>
         </header>
-        <section id = "logout" class = "perfil">
-            <span id ="perfil-nombre">Nombre</span>
-            <span>&nbsp;&nbsp;&nbsp;</span>
-            <span id ="perfil-apellido">Apellido</span>
-            <span>&nbsp;&nbsp;&nbsp;</span>
-            <button id = "logout-button" type= "button">Logout</button><br><br>
-        </section>
-        <hr>
-        <section id ="perfil-detalles" class = "perfil">
-            <h2>Detalles de usuario</h2>
-            <p id = "perfil-email">Email</p>
-            <p id = "perfil-telefono">Teléfono</p>
-            <p id = "perfil-login">Login</p>
-            <p id = "perfil-vacunado">Vacunado/a</p>
-            <hr>
-        </section>
-        <section id="perfil-eventos" class = "perfil">
-            <h2>Eventos más destacados</h2>
-            <label for="table-rows">Introduce el número de eventos que desea mostrar:</label>
-            <input type="number" id="table-rows">
-            <button type="button" id = "button-events">Filtrar</button>
-            <table id = "table-eventos">
-                <tr>
-                    <th>Nombre evento</th>
-                    <th>Fecha</th>
-                    <th>Hora</th>
-                </tr>
-            </table>
-            <p id ="perfil-errores"></p>
-        </section>
+        <div class = "informacion">
+            <section id ="perfil-detalles" class = "perfil">
+                <h2>Detalles de usuario</h2>
+                <p id = "perfil-email">Email</p>
+                <p id = "perfil-telefono">Teléfono</p>
+                <p id = "perfil-login">Login</p>
+                <p id = "perfil-vacunado">Vacunado/a</p>
+            </section>
+            <section id="perfil-eventos" class = "perfil">
+                <h2>Eventos más destacados</h2>
+                <label for="table-rows">Introduce el número de eventos que desea mostrar:</label>
+                <input type="number" id="table-rows">
+                <button type="button" id = "button-events">Filtrar</button>
+                <table id = "table-eventos">
+                    <tr>
+                        <th>Nombre evento</th>
+                        <th>Fecha</th>
+                        <th>Hora</th>
+                    </tr>
+                </table>
+                <p id ="perfil-errores"></p>
+            </section>
+        </div>
     </div>
     <script src="VanillaQR.min.js"></script>
     <script src="perfil.js" type="module"></script>

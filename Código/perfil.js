@@ -25,7 +25,7 @@ function createQr(){
     var qrcode = new VanillaQR({
         url: sessionStorage.getItem("name") + ", " + sessionStorage.getItem("surname") + ", " + sessionStorage.getItem("uuid")
     });
-    document.querySelector("#logout").appendChild(qrcode.domElement);
+    document.querySelector("#perfil-detalles").appendChild(qrcode.domElement);
 }
 
 function getEvents(){

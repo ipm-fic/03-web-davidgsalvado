@@ -1,5 +1,3 @@
-const passwordSpan = document.querySelector("#span-password");
-
 export function isEmpty(str){
     return !str.trim().length;
 }
@@ -25,16 +23,11 @@ function hasNumbers(str){
       return regex.test(str);
 }
   
-export function checkPassword(password){
-    if (password.trim().length < 8){
-        passwordSpan.innerHTML = "Introduce una contraseña con al menos 8 caracteres";
-    }else if(!hasLowerCase(password)){
-        passwordSpan.innerHTML = "La contraseña debe tener al menos una minúscula";
-    }else if(!hasCamelCase(password)){
-        passwordSpan.innerHTML = "La contraseña debe tener al menos una mayúscula";
-    }else if(!hasNumbers(password)){
-        passwordSpan.innerHTML = "La contraseña debe contener al menos un número";
+export function checkPassword(){
+    let password = document.querySelector("#password-registro").value;
+    if (password.trim().length < 8 || !hasLowerCase(password) || !hasCamelCase(password) || !hasNumbers(password)){
+        return false;
     }else{
-        passwordSpan.innerHTML = "&nbsp;";
+        return true;
     }
 }

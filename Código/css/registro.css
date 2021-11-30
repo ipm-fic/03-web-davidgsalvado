@@ -1,3 +1,5 @@
+/*MÓVIL*/
+
 body {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 100%;
@@ -10,15 +12,6 @@ img {
     max-width: 100%;
     height: auto;
 }
- 
-div#login-form{
-    width: 100%;
-}
-
-h1, h2{
-    font-family: 'Allerta Stencil', sans-serif;
-    font-weight: normal;
-}
 
 section span{
     font-family: 'Arial Narrow Bold', sans-serif;
@@ -28,11 +21,19 @@ section span{
     float: left;
 }
 
-p#login-error{
+p#registro-error{
     font-family: 'Arial Narrow Bold', sans-serif;
     font-weight: normal;
     font-size: 1em;
     color: red;
+}
+ 
+div#registro-form{
+    width: 100%;
+}
+
+h1, h2{
+    font-family: 'Allerta Stencil', sans-serif;
 }
 
 header {
@@ -70,7 +71,7 @@ button:hover {
     color: white;
 }
 
-section#form-section{
+section#registro-form-section{
     text-align: center;
     border: 2px solid black;
     margin: 4em 2em;
@@ -82,42 +83,72 @@ section h2{
     font-size: 2em;
 }
 
+.zone-registro{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 2em;
+}
+
+.zone1{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 2em;
+}
+
+.zone2{
+    width: 100%;
+}
+
+.zone3{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 2em;
+}
+
+.column{
+    flex: 100%;
+}
+
 input{
     font-family: Georgia, sans-serif;
     font-size: 1em;
-    background: transparent;
-    border: 0;
-    border-bottom: solid 1px black;
+    background: #d3d3d3;
+    border: solid 2px black;
     outline: none;
     width: 100%;
+    height: 30px;
     color: black;
 }
 
 input::placeholder{
     color: black;
-    font-size: 1.10em;
+    font-size: 1.05em;
+    opacity: 0.8;
 }
 
 input:focus{
     outline: 0;
     color: black;
-    border-bottom-color: blue;
+    border-color: blue;
 }
 
 .invalid{ /*cuando los campos son inválidos, se les pone un borde rojo*/
-    border-bottom-color: red;
+    border-color: red;
     background-image: url('../img/not_valid.png');
     background-size: 20px;
     background-repeat: no-repeat;
-    background-position: right top;
+    background-position: right center;
 }
 
 .valid{
-    border-bottom-color: green;
+    border-color: green;
     background-image: url('../img/valid.png');
     background-size: 20px;
     background-repeat: no-repeat;
-    background-position: right top;
+    background-position: right center;
 }
 
 section input[type=checkbox]{
@@ -130,18 +161,40 @@ section input[type=checkbox]{
     vertical-align: middle;
 }
 
-@media screen and (min-width: 1200px){
-    section#form-section{
-        margin: 4em 20em;
-        padding-top: 3%;
-        padding-bottom: 3%;
-    }
+section input[type=radio]{
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    float: left;
 }
 
-@media screen and (min-width: 850px) and (max-width:1199px){
-    section#form-section{
-        margin: 4em 10em;
-        padding-top: 3%;
-        padding-bottom: 3%;
-    }
+#vacunado-si{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: normal;
+    font-size: 1em;
+    color: black;
 }
+
+#vacunado-no{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: normal;
+    font-size: 1em;
+    color: black;
+}
+
+#vacunado-registro-si{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: normal;
+    font-size: 1em;
+    color: black;
+    float:left;
+}
+
+#vacunado-registro-si, #vacunado-no, #vacunado-si, section input[type=radio]{
+    vertical-align: middle;
+}
+
+legend{
+    font-size: 1.15em;
+}
+

@@ -19,15 +19,25 @@ document.querySelector("#checkbox-registro").addEventListener('click', function(
     return true
   }
 
-function checkPhone(phone){
-    if (phone.trim().length != 9){
-        document.querySelector("#span-telefono").innerHTML = "Introduce un teléfono válido (9 dígitos)";
-    }else if (!onlyDigits(phone.trim())){
-        document.querySelector("#span-telefono").innerHTML = "Introduce un teléfono válido que solo contenga dígitos"
+function checkPhone(){
+    let phone = document.querySelector("#telefono-registro").value;
+    if (phone.trim().length != 9 || !onlyDigits(phone.trim())){
+        return false;
     }else{
-        document.querySelector("#span-telefono").innerHTML = "&nbsp";
+        return true;
     }
 }
+
+document.querySelector("#telefono-registro").addEventListener('change', (event)=>{
+    let validPhone = checkPhone();
+    if(!validPhone){
+        document.querySelector("#span-telefono").innerHTML = "Introduce un teléfono válido (9 dígitos)";
+        document.querySelector("#telefono-registro").className = "invalid";
+    }else{
+        document.querySelector("#span-telefono").innerHTML = "&nbsp;";
+        document.querySelector("#telefono-registro").className = "valid";
+    }
+})
 
 function onlyLetters(str){
     for (let i = str.length - 1; i >=0; i--){
@@ -37,15 +47,74 @@ function onlyLetters(str){
     return true;
 }
 
-function checkNameSurname(nombre, nameOrSurname){    
+function checkNameSurname(nombre){    
     if (nombre.trim().length < 3){
-        document.querySelector("#span-"+ nameOrSurname).innerHTML = "Introduce un " + nameOrSurname + " de al menos 3 letras";
+        return false;
     }else if(!onlyLetters(nombre.trim())){
-        document.querySelector("#span-"+ nameOrSurname).innerHTML = "Introduce un " + nameOrSurname +" con solo letras";
+        return false;
     }else{
-        document.querySelector("#span-"+ nameOrSurname).innerHTML = "&nbsp;";
+        return true;
     }
 }
+
+document.querySelector("#nombre-registro").addEventListener('change', (event) =>{
+    let validName = checkNameSurname(document.querySelector("#nombre-registro").value);
+    if(!validName){
+        document.querySelector("#span-nombre").innerHTML = "Introduce un nombre de al menos 3 caracteres alfabéticos";
+        document.querySelector("#nombre-registro").className = "invalid";
+    }else{
+        document.querySelector("#span-nombre").innerHTML = "&nbsp;";
+        document.querySelector("#nombre-registro").className = "valid";
+    }
+})
+
+document.querySelector("#apellido-registro").addEventListener('change', (event) =>{
+    let validSurname = checkNameSurname(document.querySelector("#apellido-registro").value);
+    if(!validSurname){
+        document.querySelector("#span-apellido").innerHTML = "Introduce un nombre de al menos 3 caracteres alfabéticos";
+        document.querySelector("#apellido-registro").className = "invalid";
+    }else{
+        document.querySelector("#span-apellido").innerHTML = "&nbsp;";
+        document.querySelector("#apellido-registro").className = "valid";
+    }
+})
+
+function checkEmail(){
+    let email = document.querySelector("#email-registro").value;
+    const mail_format = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return mail_format.test(String(email).toLowerCase());
+}
+
+document.querySelector("#email-registro").addEventListener('change', (event) =>{
+    let validEmail = checkEmail();
+    if(!validEmail){
+        document.querySelector("#span-email").innerHTML = "Introduce un email con al menos 6 caracteres alfanuméricos. No puede empezar por" + 
+        " signos de puntuación y debe contener @ con al menos un caracter antes";
+        document.querySelector("#email-registro").className = "invalid";
+    }else{
+        document.querySelector("#span-email").innerHTML = "&nbsp;";
+        document.querySelector("#email-registro").className = "valid";
+    }
+})
+
+document.querySelector("#password-registro").addEventListener('change', (event) =>{
+    let validPassword = lib.checkPassword();
+    if(!validPassword){
+        document.querySelector("#span-password").innerHTML = "Introduce una contraseña con al menos 8 caracteres alfanuméricos y con al menos "
+        + "una mayúscula y una minúscula";
+        document.querySelector("#password-registro").className = "invalid";
+    }else{
+        document.querySelector("#span-password").innerHTML = "&nbsp;";
+        document.querySelector("#password-registro").className = "valid";
+    }
+})
+
+document.querySelector("#usuario-registro").addEventListener('change', (event) =>{
+    if(!lib.isEmpty(document.querySelector("#usuario-registro").value)){
+        document.querySelector("#span-usuario").innerHTML = "&nbsp;";
+        document.querySelector("#usuario-registro").className = "valid";
+    }
+})
 
 function checkForm(){
     var fields = ["#nombre-registro", "#apellido-registro", "#email-registro", "#telefono-registro", "#usuario-registro", "#password-registro"];
@@ -53,30 +122,13 @@ function checkForm(){
     var validFields = 0;
     for (var i = 0; i < 6; i++){
         if (lib.isEmpty(document.querySelector(fields[i]).value)){
-            document.querySelector(spanFields[i]).innerHTML = "Introduce un " + spanFields[i].split("-")[1];
-        }else{
-            if(fields[i] === "#password-registro"){
-                lib.checkPassword(document.querySelector(fields[i]).value);
-                if(document.querySelector(spanFields[i]).innerHTML === "&nbsp;"){
-                    ++validFields;
-                }
-            }else if(fields[i] === "#telefono-registro"){
-                checkPhone(document.querySelector(fields[i]).value);
-                if(document.querySelector(spanFields[i]).innerHTML === "&nbsp;"){
-                    ++validFields;
-                }
-            }else if(fields[i] === "#nombre-registro" || fields[i] === "#apellido-registro"){
-                checkNameSurname(document.querySelector(fields[i]).value, fields[i].split("-")[0].split("#")[1]);
-                if(document.querySelector(spanFields[i]).innerHTML === "&nbsp;"){
-                    ++validFields;
-                }
-            }else{
-                document.querySelector(spanFields[i]).innerHTML = "&nbsp;";
-                ++validFields;
-            }
-        }
-    }
-    if (validFields != 6) return false;
+            document.querySelector(spanFields[i]).innerHTML = "Este campo es obligatorio"
+            document.querySelector(fields[i]).className = "invalid";
+        }else if(document.querySelector(fields[i]).className === "valid"){
+            ++validFields;
+        }  
+    }   
+    if (validFields != 6) return false; 
     else return true;
 }
 
@@ -118,7 +170,9 @@ registroForm.addEventListener('submit', (event) => {
         }).then(response => {
             if(!response.ok){
                 document.querySelector("#span-usuario").innerHTML = "El usuario introducido ya existe, por favor introduce un usuario diferente";
+                document.querySelector("#usuario-registro").className = "invalid";
             }else{
+                document.querySelector("#usuario-registro").className = "valid";
                 location.replace("http://localhost:8000/index.html");
             }
         })

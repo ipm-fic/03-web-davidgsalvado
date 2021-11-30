@@ -7,46 +7,68 @@
     <meta name="description" content="Práctica 3">
     <meta name="author" content="Brais Campaña Martínez & Anxo Freire Balea & David Gayoso Salvado">
     <title>Registro COVID-19 Web</title>
+    <link rel="stylesheet" href="css/registro.css">
+    <link href="css/registro-tablet.css" rel="stylesheet" media="screen and (min-width: 850px) and (max-width: 1199px)">
+    <link href="css/registro-desktop.css" rel="stylesheet" media="screen and (min-width: 1200px)">
 </head>
 <body>
     <div id = "registro-form">
         <header>
-            <h1 id="titulo">Registro App Web del COVID-19</h1>
-            <hr>
+            <nav>
+                <h1 id="titulo">Registro COVID-19</h1>
+            </nav>
         </header>
         <section id = "registro-form-section">
-            <h2 id = "registro-form-title">Registro</h2>
-            <form id = "registropost">
-                <label for="nombre-registro">Nombre</label><br>
-                <input type="text" id = "nombre-registro"><br>
-                <span id= "span-nombre"></span><br><br>
+            <h2 id = "inicio-sesión"><b>Registro</b></h2>
+            <form id = "registropost" novalidate>
+                <fieldset>
+                    <legend>Nombre y datos personales</legend>
+                    <div class = "zone-registro">
+                        <div class = "zone1">
+                            <div class="column">
+                                <input type="text" id = "nombre-registro" placeholder="Nombre*"><br>
+                                <span id= "span-nombre"></span>
+                            </div>
+                            <div class="column">
+                                <input type="text" id = "apellido-registro" placeholder="Apellido*"><br>
+                                <span id = "span-apellido"></span>
+                            </div>   
+                        </div>
+    
+                        <div class = "zone2">
+                                <input type = "email" id = "email-registro" placeholder="Email*"><br>
+                                <span id = "span-email"></span>
+                        </div>
+                    
+                        <div class ="zone3">
+                            <div class="column">
+                                <input type = "tel" id = "telefono-registro" placeholder="Teléfono*"><br>
+                                <span id = "span-telefono"></span>
+                            </div>
+                            <div class = "column">
+                                <span id="vacunado-registro-si">Vacunado/a</span>
+                                <input type="radio" id = "vacunado-registro-si" value="Sí" name = "vacunado" checked>
+                                <span id= "vacunado-si">Sí</span>
+                                <input type="radio" id="vacunado-registro-no" value="No" name = "vacunado">
+                                <span id="vacunado-no">No</span>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                </fieldset> 
+                <br>
+                <fieldset>
+                    <legend>Datos de la cuenta</legend>
+                    <input type = "text" id = "usuario-registro" placeholder="Usuario*"><br>
+                    <span id = "span-usuario"></span><br>
+                    <p id = "usuario-existente"></p>
 
-                <label for="apellido-registro">Apellido</label><br>
-                <input type="text" id = "apellido-registro"><br>
-                <span id = "span-apellido"></span><br><br> 
+                    <input type = "password" id = "password-registro" placeholder="Contraseña*"><br>
+                    <span id = "span-password"></span><br><br>
+                    <input type="checkbox" id="checkbox-registro"/>Mostrar contraseña<br><br>
+                </fieldset>
 
-                <label for = "email-registro">Email</label><br>
-                <input type = "email" id = "email-registro" placeholder="pepe@gmail.com"><br>
-                <span id = "span-email"></span><br><br>
-
-                <label for = "telefono-registro">Teléfono</label><br>
-                <input type = "tel" id = "telefono-registro" placeholder="634440760"><br>
-                <span id = "span-telefono"></span><br><br>
-
-                <label for = "vacunado-registro-si">Vacunado/a</label>
-                <input type="radio" id = "vacunado-registro-si" value="Sí" name = "vacunado" checked>Sí
-                <input type="radio" id="vacunado-registro-no" value="No" name = "vacunado">No<br><br>
-                
-                <label for = "usuario-registro">Usuario</label><br>
-                <input type = "text" id = "usuario-registro" placeholder="pepe10"><br>
-                <span id = "span-usuario"></span><br>
-                <p id = "usuario-existente"></p>
-
-                <label for = "password-registro">Contraseña</label><br>
-                <input type = "password" id = "password-registro"><br>
-                <span id = "span-password"></span><br><br>
-                <input type="checkbox" id="checkbox-registro"/>Mostrar contraseña<br><br>
-
+                <br>
                 <button type="submit" id = "submit-registro">Registrarse</button>
                 <p id = "registro-error"></p>
             </form>
