@@ -23,9 +23,11 @@ window.onload = function(){
 
 function createQr(){
     var qrcode = new VanillaQR({
-        url: sessionStorage.getItem("name") + ", " + sessionStorage.getItem("surname") + ", " + sessionStorage.getItem("uuid")
+        url: sessionStorage.getItem("name") + ", " + sessionStorage.getItem("surname") + ", " + sessionStorage.getItem("uuid"),
+        noBorder: false,
+        size: 250
     });
-    document.querySelector("#perfil-detalles").appendChild(qrcode.domElement);
+    document.querySelector("#perfil-qr").appendChild(qrcode.domElement);
 }
 
 function getEvents(){
@@ -63,6 +65,7 @@ function getEvents(){
                 row.insertCell(0).innerHTML = responseJSON["access_log"][i]["facility"]["name"];
                 row.insertCell(1).innerHTML = fecha;
                 row.insertCell(2).innerHTML = hora;
+                row.className = "table";
                 row.id = "row" + (i+1).toString();
             }
         }

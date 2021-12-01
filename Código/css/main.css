@@ -63,6 +63,7 @@ button{
     text-align: center;
     color: black;
     border: 2px solid #008CBA;
+    border-radius: 12px;
 }
 
 button:hover {
