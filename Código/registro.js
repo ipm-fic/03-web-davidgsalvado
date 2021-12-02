@@ -3,7 +3,7 @@ import * as lib from './auxFunctions.js';
 const registroForm = document.querySelector("form#registropost");
 const password = document.querySelector("#password-registro");
 
-document.querySelector("#checkbox-registro").addEventListener('click', function(){
+document.querySelector("#show-password").addEventListener('click', (event) =>{
     if(password.type === "password"){
         password.type = "text";
     }else if (password.type === "text"){
@@ -97,18 +97,6 @@ document.querySelector("#email-registro").addEventListener('change', (event) =>{
     }
 })
 
-document.querySelector("#password-registro").addEventListener('change', (event) =>{
-    let validPassword = lib.checkPassword();
-    if(!validPassword){
-        document.querySelector("#span-password").innerHTML = "Introduce una contraseña con al menos 8 caracteres alfanuméricos y con al menos "
-        + "una mayúscula y una minúscula";
-        document.querySelector("#password-registro").className = "invalid";
-    }else{
-        document.querySelector("#span-password").innerHTML = "&nbsp;";
-        document.querySelector("#password-registro").className = "valid";
-    }
-})
-
 document.querySelector("#usuario-registro").addEventListener('change', (event) =>{
     if(!lib.isEmpty(document.querySelector("#usuario-registro").value)){
         document.querySelector("#span-usuario").innerHTML = "&nbsp;";
@@ -124,6 +112,16 @@ function checkForm(){
         if (lib.isEmpty(document.querySelector(fields[i]).value)){
             document.querySelector(spanFields[i]).innerHTML = "Este campo es obligatorio"
             document.querySelector(fields[i]).className = "invalid";
+        }else if(fields[i] === "#password-registro"){
+            let validPassword = lib.checkPassword();
+            if(!validPassword){
+                document.querySelector("#span-password").innerHTML = "Introduce una contraseña con al menos 8 caracteres alfanuméricos y con al menos "
+                + "una mayúscula y una minúscula";
+                document.querySelector("#password-registro").className = "invalid";
+            }else{
+                document.querySelector("#span-password").innerHTML = "&nbsp;";
+                document.querySelector("#password-registro").className = "valid";
+            }
         }else if(document.querySelector(fields[i]).className === "valid"){
             ++validFields;
         }  

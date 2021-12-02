@@ -1,7 +1,6 @@
 import * as lib from './auxFunctions.js';
 
 const password = document.querySelector("#password-formpost");
-const checkbox = document.querySelector("#checkbox-formpost");
 const passwordSpan = document.querySelector("#span-password");
 const userSpan = document.querySelector("#span-usuario");
 
@@ -12,13 +11,13 @@ var phone;
 var uuid;
 var vacunado;
 
-checkbox.addEventListener('click', function(){
-    if (password.type == "password") {
-        password.type = "text";
-      } else {
-        password.type = "password";
-      }
-});
+document.querySelector("#show-password").addEventListener('click', (event) =>{
+  if (password.type == "password") {
+    password.type = "text";
+  } else {
+    password.type = "password"; 
+  }
+})
 
 function getData(response){
   nameUser = response["name"];

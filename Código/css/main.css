@@ -1,3 +1,7 @@
+*{
+    box-sizing: border-box;
+}
+
 body {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 100%;
@@ -75,7 +79,7 @@ section#form-section{
     text-align: center;
     border: 2px solid black;
     margin: 4em 2em;
-    padding: 5% 10% 5% 10%;
+    padding: 5% 8% 5% 8%;
     background-color: gray;
 }
 
@@ -86,39 +90,65 @@ section h2{
 input{
     font-family: Georgia, sans-serif;
     font-size: 1em;
-    background: transparent;
-    border: 0;
-    border-bottom: solid 1px black;
+    background: #f1f1f1;
+    border: solid 1px black;
     outline: none;
     width: 100%;
     color: black;
+    padding: 5px;
 }
 
 input::placeholder{
     color: black;
     font-size: 1.10em;
+    opacity: 0.8;
 }
 
 input:focus{
     outline: 0;
     color: black;
-    border-bottom-color: blue;
+    border-color: blue;
+}
+
+.show{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.container1{
+    flex: 85%;
+}
+
+#password-formpost{
+    float: left;
+    width: 100%;
+}
+
+#show-password{
+    cursor: pointer;
+    background:#2196F3;
+    color: black;
+    text-align: center;
+    border-left: none; 
+    padding: 5px;
+    width: 100%;
 }
 
 .invalid{ /*cuando los campos son inválidos, se les pone un borde rojo*/
-    border-bottom-color: red;
+    border: 2px solid red;
     background-image: url('../img/not_valid.png');
-    background-size: 20px;
+    background-size: 15px;
     background-repeat: no-repeat;
-    background-position: right top;
+    background-position: right center;
 }
 
 .valid{
-    border-bottom-color: green;
+    border: 2px solid green;
     background-image: url('../img/valid.png');
-    background-size: 20px;
+    background-size: 15px;
     background-repeat: no-repeat;
-    background-position: right top;
+    background-position: right center;
 }
 
 section input[type=checkbox]{

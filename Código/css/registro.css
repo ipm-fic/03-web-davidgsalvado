@@ -120,8 +120,9 @@ input{
     border: solid 2px black;
     outline: none;
     width: 100%;
-    height: 30px;
     color: black;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 input::placeholder{
@@ -136,10 +137,35 @@ input:focus{
     border-color: blue;
 }
 
+.show{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.container1{
+    flex: 85%;
+}
+
+#password-registro{
+    float: left;
+    width: 100%;
+}
+
+#show-password{
+    cursor: pointer;
+    background:#2196F3;
+    color: black;
+    text-align: center;
+    border-left: none; /* prevent double border*/
+    padding: 5px;
+    width: 100%;
+}
+
 .invalid{ /*cuando los campos son inválidos, se les pone un borde rojo*/
     border-color: red;
     background-image: url('../img/not_valid.png');
-    background-size: 20px;
+    background-size: 15px;
     background-repeat: no-repeat;
     background-position: right center;
 }
@@ -147,19 +173,9 @@ input:focus{
 .valid{
     border-color: green;
     background-image: url('../img/valid.png');
-    background-size: 20px;
+    background-size: 15px;
     background-repeat: no-repeat;
     background-position: right center;
-}
-
-section input[type=checkbox]{
-    width: 18px;
-    height: 18px;
-    cursor: pointer;
-}
-
-#checkbox-container, #checkbox-formpost{
-    vertical-align: middle;
 }
 
 section input[type=radio]{
