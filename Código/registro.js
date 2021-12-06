@@ -6,8 +6,10 @@ const password = document.querySelector("#password-registro");
 document.querySelector("#show-password").addEventListener('click', (event) =>{
     if(password.type === "password"){
         password.type = "text";
+        document.querySelector("#show-password").value = "Ocultar";
     }else if (password.type === "text"){
         password.type = "password";
+        document.querySelector("#show-password").value = "Mostrar";
     }
 });
 
@@ -33,9 +35,13 @@ document.querySelector("#telefono-registro").addEventListener('change', (event)=
     if(!validPhone){
         document.querySelector("#span-telefono").innerHTML = "Introduce un teléfono válido (9 dígitos)";
         document.querySelector("#telefono-registro").className = "invalid";
+        document.querySelector("#telefono-registro").setAttribute("aria-invalid", "true");
+        document.querySelector("#telefono-registro").setAttribute("aria-live", "polite");
     }else{
         document.querySelector("#span-telefono").innerHTML = "&nbsp;";
         document.querySelector("#telefono-registro").className = "valid";
+        document.querySelector("#telefono-registro").setAttribute("aria-invalid", "false");
+        document.querySelector("#telefono-registro").removeAttribute("aria-live");
     }
 })
 
@@ -62,9 +68,13 @@ document.querySelector("#nombre-registro").addEventListener('change', (event) =>
     if(!validName){
         document.querySelector("#span-nombre").innerHTML = "Introduce un nombre de al menos 3 caracteres alfabéticos";
         document.querySelector("#nombre-registro").className = "invalid";
+        document.querySelector("#nombre-registro").setAttribute("aria-invalid", "true");
+        document.querySelector("#nombre-registro").setAttribute("aria-live", "polite");
     }else{
         document.querySelector("#span-nombre").innerHTML = "&nbsp;";
         document.querySelector("#nombre-registro").className = "valid";
+        document.querySelector("#nombre-registro").setAttribute("aria-invalid", "false");
+        document.querySelector("#nombre-registro").removeAttribute("aria-live");
     }
 })
 
@@ -73,9 +83,13 @@ document.querySelector("#apellido-registro").addEventListener('change', (event) 
     if(!validSurname){
         document.querySelector("#span-apellido").innerHTML = "Introduce un nombre de al menos 3 caracteres alfabéticos";
         document.querySelector("#apellido-registro").className = "invalid";
+        document.querySelector("#apellido-registro").setAttribute("aria-invalid", "true");
+        document.querySelector("#apellido-registro").setAttribute("aria-live", "polite");
     }else{
         document.querySelector("#span-apellido").innerHTML = "&nbsp;";
         document.querySelector("#apellido-registro").className = "valid";
+        document.querySelector("#apellido-registro").setAttribute("aria-invalid", "false");
+        document.querySelector("#apellido-registro").removeAttribute("aria-live");
     }
 })
 
@@ -91,9 +105,13 @@ document.querySelector("#email-registro").addEventListener('change', (event) =>{
         document.querySelector("#span-email").innerHTML = "Introduce un email con al menos 6 caracteres alfanuméricos. No puede empezar por" + 
         " signos de puntuación y debe contener @ con al menos un caracter antes";
         document.querySelector("#email-registro").className = "invalid";
+        document.querySelector("#email-registro").setAttribute("aria-invalid", "true");
+        document.querySelector("#email-registro").setAttribute("aria-live", "polite");
     }else{
         document.querySelector("#span-email").innerHTML = "&nbsp;";
         document.querySelector("#email-registro").className = "valid";
+        document.querySelector("#email-registro").setAttribute("aria-invalid", "false");
+        document.querySelector("#email-registro").removeAttribute("aria-live");
     }
 })
 
@@ -101,6 +119,7 @@ document.querySelector("#usuario-registro").addEventListener('change', (event) =
     if(!lib.isEmpty(document.querySelector("#usuario-registro").value)){
         document.querySelector("#span-usuario").innerHTML = "&nbsp;";
         document.querySelector("#usuario-registro").className = "valid";
+        document.querySelector("#usuario-registro").setAttribute("aria-invalid", "false");
     }
 })
 
@@ -112,20 +131,27 @@ function checkForm(){
         if (lib.isEmpty(document.querySelector(fields[i]).value)){
             document.querySelector(spanFields[i]).innerHTML = "Este campo es obligatorio"
             document.querySelector(fields[i]).className = "invalid";
+            document.querySelector(fields[i]).setAttribute("aria-invalid", "true");
+            document.querySelector(fields[i]).setAttribute("aria-live", "polite");
         }else if(fields[i] === "#password-registro"){
             let validPassword = lib.checkPassword();
             if(!validPassword){
                 document.querySelector("#span-password").innerHTML = "Introduce una contraseña con al menos 8 caracteres alfanuméricos y con al menos "
                 + "una mayúscula y una minúscula";
                 document.querySelector("#password-registro").className = "invalid";
+                document.querySelector("#password-registro").setAttribute("aria-invalid", "true");
+                document.querySelector("#password-registro").setAttribute("aria-live", "polite");
             }else{
                 document.querySelector("#span-password").innerHTML = "&nbsp;";
                 document.querySelector("#password-registro").className = "valid";
+                document.querySelector("#password-registro").setAttribute("aria-invalid", "false");
+                document.querySelector("#password-registro").removeAttribute("aria-live");
+                ++validFields;
             }
         }else if(document.querySelector(fields[i]).className === "valid"){
             ++validFields;
         }  
-    }   
+    } 
     if (validFields != 6) return false; 
     else return true;
 }
@@ -167,6 +193,7 @@ registroForm.addEventListener('submit', (event) => {
             body: JSON.stringify(data),
         }).then(response => {
             if(!response.ok){
+                alert("entro");
                 document.querySelector("#span-usuario").innerHTML = "El usuario introducido ya existe, por favor introduce un usuario diferente";
                 document.querySelector("#usuario-registro").className = "invalid";
             }else{

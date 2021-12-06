@@ -15,7 +15,7 @@ img {
 
 p#perfil-errores{
     font-size: 1.25em;
-    color: red;
+    color: black;
     text-align: center;
 }
  
@@ -27,7 +27,7 @@ div.informacion{
     border: 2px solid black;
     margin: 4em 2em;
     padding: 5%;
-    background-color: gray;
+    background-color: #808080;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -42,7 +42,7 @@ div.informacion{
 }
 
 header {
-    background-color: #444;
+    background-color: #0F0F0F;
 }
 
 header nav{
@@ -52,7 +52,7 @@ header nav{
 header nav h1{
     margin-top: 0;
     padding: 1em 0 0 0.5em;
-    color: tomato;
+    color: #FF7B49;
     font-size: 2em;
     float: left;
     display: inline;
@@ -75,20 +75,28 @@ header nav section{
     justify-content: space-between;
 }
 
+#perfil-nombre{
+    color: #FF7B49;
+}
+
+#perfil-apellido{
+    color: #FF7B49;
+}
+
 button{
     font-size: 1em;
-    background-color: blue;
+    background-color: #9494FF;
     outline: none;
     transition-duration: 0.4s;
     cursor: pointer;
     text-align: center;
-    color: white;
+    color: #000000;
     border: 2px solid #008CBA;
     border-radius: 12px;
 }
 
 button:hover {
-    background-color: #008CBA;
+    background-color: #0000ff;
     color: white;
 }
 
@@ -146,15 +154,17 @@ button:hover {
     border-collapse: collapse;
     margin-left: auto;
     margin-right: auto;
+    color: black;
 }
 
 .table th{
-    background-color: cyan;
+    background-color: black;
+    color: white;
 }
 
 .table th, .table td{
     padding: 5px;
-    border: 1px solid black;
+    border: 1px solid white;
 }
 
 @media screen and (min-width: 1200px){ /*desktop*/
@@ -221,15 +231,17 @@ button:hover {
         border-collapse: collapse;
         margin-left: auto;
         margin-right: auto;
+        color: black;
     }
 
     .table th{
-        background-color: cyan;
+        background-color: black;
+        color: white;
     }
 
     .table th, .table td{
         padding: 10px;
-        border: 1px solid black;
+        border: 1px solid white;
     }
 }
 

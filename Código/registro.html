@@ -10,11 +10,12 @@
     <link rel="stylesheet" href="css/registro.css">
     <link href="css/registro-tablet.css" rel="stylesheet" media="screen and (min-width: 850px) and (max-width: 1199px)">
     <link href="css/registro-desktop.css" rel="stylesheet" media="screen and (min-width: 1200px)">
+    <link rel="shortcut icon" type="image/x-icon" href="img/tab_icon.ico">
 </head>
 <body>
     <div id = "registro-form">
         <header>
-            <nav>
+            <nav role="navigation">
                 <h1 id="titulo">Registro COVID-19</h1>
             </nav>
         </header>
@@ -26,31 +27,39 @@
                     <div class = "zone-registro">
                         <div class = "zone1">
                             <div class="column">
-                                <input type="text" id = "nombre-registro" placeholder="Nombre*"><br>
-                                <span id= "span-nombre"></span>
+                                <label for = "nombre-registro" id = "label-nombre">Nombre*</label>
+                                <input type="text" id = "nombre-registro" aria-required="true" aria-labelledby="label-nombre" tabindex="0" 
+                                aria-errormessage="span-nombre" aria-invalid="false"><br>
+                                <span id= "span-nombre" role="alert"></span>
                             </div>
                             <div class="column">
-                                <input type="text" id = "apellido-registro" placeholder="Apellido*"><br>
-                                <span id = "span-apellido"></span>
+                                <label for="apellido-registro" id = "label-apellido">Apellido*</label>
+                                <input type="text" id = "apellido-registro" aria-invalid="false" aria-required="true" aria-labelledby="label-apellido" 
+                                aria-errormessage="span-apellido" tabindex="0"><br>
+                                <span id = "span-apellido" role="alert"></span>
                             </div>   
                         </div>
     
                         <div class = "zone2">
-                                <input type = "email" id = "email-registro" placeholder="Email*"><br>
-                                <span id = "span-email"></span>
+                                <label for="email-registro" id = "label-email">Email*</label>
+                                <input type = "email" id = "email-registro" aria-invalid="false" aria-required="true" aria-labelledby="label-email" 
+                                aria-errormessage="span-email" tabindex="0"><br>
+                                <span id = "span-email" role="alert"></span>
                         </div>
                     
                         <div class ="zone3">
                             <div class="column">
-                                <input type = "tel" id = "telefono-registro" placeholder="Teléfono*"><br>
-                                <span id = "span-telefono"></span>
+                                <label for="telefono-registro" id = "label-telefono">Teléfono*</label>
+                                <input type = "tel" id = "telefono-registro" aria-invalid = "false" aria-required="true" aria-labelledby="label-telefono" 
+                                aria-errormessage="span-telefono" tabindex="0"><br>
+                                <span id = "span-telefono" role="alert"></span>
                             </div>
                             <div class = "column">
                                 <span id="vacunado-registro-si">Vacunado/a</span>
-                                <input type="radio" id = "vacunado-registro-si" value="Sí" name = "vacunado" checked>
-                                <span id= "vacunado-si">Sí</span>
-                                <input type="radio" id="vacunado-registro-no" value="No" name = "vacunado">
-                                <span id="vacunado-no">No</span>
+                                <input type="radio" id = "vacunado-registro-si" aria-checked="true" value="Sí" name = "vacunado" tabindex= "0" checked>
+                                <span id= "vacunado-si" role="alert">Sí</span>
+                                <input type="radio" id="vacunado-registro-no" value="No" name = "vacunado" tabindex="0">
+                                <span id="vacunado-no" role="alert">No</span>
                             </div>
                         </div>
                     </div>
@@ -59,24 +68,25 @@
                 <br>
                 <fieldset>
                     <legend>Datos de la cuenta</legend>
-                    <input type = "text" id = "usuario-registro" placeholder="Usuario*"><br>
-                    <span id = "span-usuario"></span><br>
-                    <p id = "usuario-existente"></p>
-
+                    <label for="usuario-registro" id = "label-usuario">Usuario*</label>
+                    <input type = "text" id = "usuario-registro" aria-errormessage="span-usuario" aria-invalid = "false" aria-required="true" aria-labelledby="label-usuario" tabindex="0"><br>
+                    <span id = "span-usuario" role="alert"></span><br>
+                    <label for="password-registro" id = "label-contraseña">Contraseña*</label><br>
                     <div class = "show">
                         <div class = "container1">
-                            <input type = "password" id = "password-registro" placeholder="Contraseña*" />
+                            <input type = "password" id = "password-registro" aria-invalid = "false" aria-required="true" 
+                            aria-errormessage="span-password" aria-labelledby="label-contraseña" tabindex="0"/>
                         </div>
                         <div class = "container2">
                             <input type = "button" id = "show-password" value = "Mostrar" />
                         </div>
                     </div>
-                    <span id = "span-password"></span><br><br>
+                    <span id = "span-password" role="alert"></span><br>
                 </fieldset>
 
                 <br>
                 <button type="submit" id = "submit-registro">Registrarse</button>
-                <p id = "registro-error"></p>
+                <p id = "registro-error" role="alert"></p>
             </form>
         </section>
     </div>

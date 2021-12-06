@@ -8,11 +8,12 @@
     <meta name="author" content="Brais Campaña Martínez & Anxo Freire Balea & David Gayoso Salvado">
     <title>Perfil</title>
     <link rel="stylesheet" href="css/perfil.css">
+    <link rel="shortcut icon" type="image/x-icon" href="img/tab_icon.ico">
 </head>
 <body>
     <div id = "perfil-page">
         <header>
-            <nav>
+            <nav role = "navigation">
                 <div class="navbar">
                     <h1 id="perfil-title">Perfil</h1>
                     <section id = "logout">
@@ -20,7 +21,7 @@
                         <span>&nbsp;&nbsp;&nbsp;</span>
                         <span id ="perfil-apellido">Apellido</span>
                         <span>&nbsp;&nbsp;&nbsp;</span>
-                        <button id = "logout-button" type= "button">Logout</button><br><br>
+                        <button id = "logout-button" type= "button" tabindex="0">Logout</button>
                     </section>
                 </div>
             </nav>
@@ -46,11 +47,12 @@
                     <div class = "column-eventos">
                         <div class = "row-eventos">
                             <label for="table-rows">Introduce el número de eventos que desea mostrar:</label>
-                            <input type="number" id="table-rows">
-                            <button type="button" id = "button-events">Filtrar</button>
+                            <input type="number" id="table-rows" tabindex="0">
+                            <button type="button" id = "button-events" tabindex="0">Filtrar</button>
                         </div>
                         <div class = "row-eventos">
                             <table id = "table-eventos" class = "table">
+                                <caption>Eventos</caption>
                                 <tr class = "table">
                                     <th class = "table">Nombre evento</th>
                                     <th class = "table">Fecha</th>

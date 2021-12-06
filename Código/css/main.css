@@ -19,6 +19,11 @@ div#login-form{
     width: 100%;
 }
 
+label{
+    float: left;
+    width: 1em;
+}
+
 h1, h2{
     font-family: 'Allerta Stencil', sans-serif;
     font-weight: normal;
@@ -40,7 +45,7 @@ p#login-error{
 }
 
 header {
-    background-color: #444;
+    background-color: #0F0F0F;
 }
 
 header nav{
@@ -50,7 +55,7 @@ header nav{
 header nav h1{
     margin-top: 0;
     padding: 1em 0 0 1em;
-    color: tomato;
+    color: #FF7B49;
     font-size: 1.5em;
     float: left;
     display: inline;
@@ -91,17 +96,11 @@ input{
     font-family: Georgia, sans-serif;
     font-size: 1em;
     background: #f1f1f1;
-    border: solid 1px black;
+    border: solid 2px black; /*aumentar ancho borde*/
     outline: none;
     width: 100%;
     color: black;
     padding: 5px;
-}
-
-input::placeholder{
-    color: black;
-    font-size: 1.10em;
-    opacity: 0.8;
 }
 
 input:focus{
@@ -135,8 +134,7 @@ input:focus{
     width: 100%;
 }
 
-.invalid{ /*cuando los campos son inválidos, se les pone un borde rojo*/
-    border: 2px solid red;
+.invalid{ /*quitamos borde rojo*/
     background-image: url('../img/not_valid.png');
     background-size: 15px;
     background-repeat: no-repeat;

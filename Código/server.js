@@ -14,8 +14,10 @@ var vacunado;
 document.querySelector("#show-password").addEventListener('click', (event) =>{
   if (password.type == "password") {
     password.type = "text";
+    document.querySelector("#show-password").value = "Ocultar";
   } else {
-    password.type = "password"; 
+    password.type = "password";
+    document.querySelector("#show-password").value = "Mostrar"; 
   }
 })
 
@@ -36,25 +38,34 @@ document.querySelector('form#formpost').addEventListener('submit', (event) => {
   var password = document.querySelector("#password-formpost").value;
 
   if(lib.isEmpty(login)){
+    userSpan.setAttribute("aria-live", "polite");
     userSpan.innerHTML = "Introduce un nombre de usuario";
     document.querySelector("#username-formpost").className= "invalid";
+    document.querySelector("#username-formpost").setAttribute("aria-invalid", "true");
     if(lib.isEmpty(password)){
-        passwordSpan.innerHTML = "Introduce una contraseña";
-        document.querySelector("#password-formpost").className = "invalid";
+      passwordSpan.setAttribute("aria-live", "polite");
+      passwordSpan.innerHTML = "Introduce una contraseña";
+      document.querySelector("#password-formpost").className = "invalid";
+      document.querySelector("#password-formpost").setAttribute("aria-invalid", "true");
     }else{
       passwordSpan.innerHTML = "&nbsp;";
       document.querySelector("#password-formpost").className = "valid";
+      document.querySelector("#password-formpost").setAttribute("aria-invalid", "false");
     }
     event.preventDefault(); 
   }else{
     userSpan.innerHTML = "&nbsp;";
     document.querySelector("#username-formpost").className = "valid";
+    document.querySelector("#username-formpost").setAttribute("aria-invalid", "false");
     if(!lib.isEmpty(password)){   
       passwordSpan.innerHTML = "&nbsp;";
       document.querySelector("#password-formpost").className = "valid";
+      document.querySelector("#password-formpost").setAttribute("aria-invalid", "false");
     }else{
-        passwordSpan.innerHTML = "Introduce una contraseña";
-        document.querySelector("#password-formpost").className = "invalid";
+      passwordSpan.setAttribute("aria-live", "polite");
+      passwordSpan.innerHTML = "Introduce una contraseña";
+      document.querySelector("#password-formpost").className = "invalid";
+      document.querySelector("#password-formpost").setAttribute("aria-invalid", "true");
     }
     event.preventDefault();
   }
