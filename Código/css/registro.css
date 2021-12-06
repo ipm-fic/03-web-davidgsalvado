@@ -212,6 +212,11 @@ section input[type=radio]{
     float:left;
 }
 
+#vacunado-span{
+    color: black;
+    font-size: 1em;
+}
+
 #vacunado-registro-si, #vacunado-no, #vacunado-si, section input[type=radio]{
     vertical-align: middle;
 }
