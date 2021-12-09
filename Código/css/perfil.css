@@ -34,13 +34,6 @@ div.informacion{
     vertical-align: center;
 }
 
-.zona1-información{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    gap: 2em;
-}
-
 header {
     background-color: #0F0F0F;
 }
@@ -103,18 +96,25 @@ button:hover {
 .zona1-información{
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    gap: 1em;
 }
 
 .column{
     flex: 50%;
     vertical-align: middle;
-    align-items: center;
+    justify-content: center;
+}
+
+.column2{
+    text-align: center;
+    justify-content: center;
 }
 
 #perfil-qr{
     justify-content: center;
     text-align: center;
+    width: 50%;
 }
 
 .perfil{
@@ -127,6 +127,7 @@ button:hover {
 
 #perfil-eventos{
     padding: 2% 5% 2% 5%;
+    margin-top: 3%;
 }
 
 #perfil-eventos h2{
@@ -136,6 +137,10 @@ button:hover {
 
 #perfil-detalles h2{
     text-align: center;
+}
+
+#perfil-detalles{
+    width: 100%;
 }
 
 .column-eventos{
@@ -184,7 +189,7 @@ button:hover {
     .zona1-información{
         display: flex;
         flex-direction: row;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
     }
 
     .zona2-información{
@@ -203,9 +208,17 @@ button:hover {
     }
 
     .column{
-        flex: 1;
         vertical-align: middle;
         align-items: center;
+        flex: 75%;
+    }
+
+    #perfil-detalles{
+        width: 80%;
+    }
+
+    #perfil-qr{
+        width: 100%;
     }
 
     .perfil{
@@ -276,6 +289,20 @@ button:hover {
         flex-wrap: nowrap;
     }
 
+    .column{
+        vertical-align: middle;
+        align-items: center;
+        flex: 75%;
+    }
+
+    #perfil-detalles{
+        width: 80%;
+    }
+
+    #perfil-qr{
+        width: 100%;
+    }
+
     .zona2-información{
         text-align: center;
     }
@@ -290,11 +317,4 @@ button:hover {
     .row-eventos{
         flex: 50%
     }
-
-    .column{
-        flex: 40%;
-        vertical-align: middle;
-        align-items: center;
-    }
-
 }

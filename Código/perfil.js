@@ -35,10 +35,10 @@ window.onload = function(){
 function createQr(){
     var qrcode = new VanillaQR({
         url: sessionStorage.getItem("name") + ", " + sessionStorage.getItem("surname") + ", " + sessionStorage.getItem("uuid"),
-        noBorder: false,
-        size: 250
+        noBorder: true,
+        size: 350
     });
-    document.querySelector("#perfil-qr").appendChild(qrcode.domElement);
+    document.querySelector("#perfil-qr").src= qrcode.domElement.toDataURL("image/png");
 }
 
 function getEvents(){
