@@ -1,4 +1,7 @@
 /*MÓVIL*/
+*{
+    box-sizing: border-box;
+}
 
 body {
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -168,7 +171,6 @@ input:focus{
 }
 
 .invalid{ /*cuando los campos son inválidos, se les pone un borde rojo*/
-    border-color: red;
     background-image: url('../img/not_valid.png');
     background-size: 15px;
     background-repeat: no-repeat;

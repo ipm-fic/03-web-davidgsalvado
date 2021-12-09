@@ -29,7 +29,8 @@
                 <label for="password-formpost" id ="label-password">Contraseña*</label><br>
                 <div class = "show">
                     <div class = "container1">
-                        <input type="password" id="password-formpost" aria-invalid="false" aria-required="true" aria-errormessage="span-password" aria-labelledby="label-password" tabindex= "0" required>
+                        <input type="password" id="password-formpost" aria-invalid="false" aria-required="true" 
+                        aria-errormessage="span-password" aria-labelledby="label-password" tabindex= "0" required>
                     </div>
                     <div class = "container2">
                         <input type = "button" id = "show-password" value ="Mostrar" tabindex= "0">
@@ -37,7 +38,7 @@
                 </div>
                 <span id = "span-password" role="alert"></span>
                 <br><br>
-                <button type="submit" id = "submit-login" tabindex= "0">
+                <button type="submit" id = "submit-login" tabindex= "0" aria-label="Login">
                     <img src="img/send.jpg" alt="send_image" id="send" width="15" height="20">
                     Login
                 </button><br>
@@ -45,7 +46,7 @@
             </form>
             <hr>
             <p id="crear-cuenta" role = "alert">Si no tienes una cuenta, crea una aquí</p>
-            <a href="registro.html" tabindex= "0">Regístrate</a>
+            <a href="registro.html" tabindex= "0" aria-label = "Registrarse">Regístrate</a>
         </section>
     </div>
     <script src="server.js" type="module"></script>

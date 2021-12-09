@@ -42,30 +42,36 @@ document.querySelector('form#formpost').addEventListener('submit', (event) => {
     userSpan.innerHTML = "Introduce un nombre de usuario";
     document.querySelector("#username-formpost").className= "invalid";
     document.querySelector("#username-formpost").setAttribute("aria-invalid", "true");
+    document.querySelector("#username-formpost").setAttribute("aria-live", "polite");
     if(lib.isEmpty(password)){
       passwordSpan.setAttribute("aria-live", "polite");
       passwordSpan.innerHTML = "Introduce una contraseña";
       document.querySelector("#password-formpost").className = "invalid";
       document.querySelector("#password-formpost").setAttribute("aria-invalid", "true");
+      document.querySelector("#password-formpost").setAttribute("aria-live", "polite");
     }else{
       passwordSpan.innerHTML = "&nbsp;";
       document.querySelector("#password-formpost").className = "valid";
       document.querySelector("#password-formpost").setAttribute("aria-invalid", "false");
+      document.querySelector("#password-formpost").removeAttribute("aria-live");
     }
     event.preventDefault(); 
   }else{
     userSpan.innerHTML = "&nbsp;";
     document.querySelector("#username-formpost").className = "valid";
     document.querySelector("#username-formpost").setAttribute("aria-invalid", "false");
+    document.querySelector("#username-formpost").removeAttribute("aria-live");
     if(!lib.isEmpty(password)){   
       passwordSpan.innerHTML = "&nbsp;";
       document.querySelector("#password-formpost").className = "valid";
       document.querySelector("#password-formpost").setAttribute("aria-invalid", "false");
+      document.querySelector("#password-formpost").removeAttribute("aria-live");
     }else{
       passwordSpan.setAttribute("aria-live", "polite");
       passwordSpan.innerHTML = "Introduce una contraseña";
       document.querySelector("#password-formpost").className = "invalid";
       document.querySelector("#password-formpost").setAttribute("aria-invalid", "true");
+      document.querySelector("#password-formpost").setAttribute("aria-live", "polite");
     }
     event.preventDefault();
   }

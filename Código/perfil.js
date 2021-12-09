@@ -12,11 +12,22 @@ document.querySelector("#button-events").addEventListener('click', (event) =>{
 
 window.onload = function(){
     document.querySelector("#perfil-nombre").innerHTML = sessionStorage.getItem("name");
+    document.querySelector("#perfil-nombre").setAttribute("aria-label", sessionStorage.getItem("name"));
+
     document.querySelector("#perfil-apellido").innerHTML = sessionStorage.getItem("surname");
+    document.querySelector("#perfil-apellido").setAttribute("aria-label", sessionStorage.getItem("surname"));
+
     document.querySelector("#perfil-email").innerHTML = "<b>Email</b>: " + sessionStorage.getItem("email");
+    document.querySelector("#perfil-email").setAttribute("aria-label", "Email: " + sessionStorage.getItem("email"));
+
     document.querySelector("#perfil-telefono").innerHTML = "<b>Teléfono</b>: " + sessionStorage.getItem("phone");
+    document.querySelector("#perfil-telefono").setAttribute("aria-label", "Teléfono: " + sessionStorage.getItem("phone"));
+
     document.querySelector("#perfil-login").innerHTML = "<b>Nombre de usuario</b>: " + sessionStorage.getItem("username");
+    document.querySelector("#perfil-login").setAttribute("aria-label", "Nombre de usuario: " + sessionStorage.getItem("username"));
+
     document.querySelector("#perfil-vacunado").innerHTML = "<b>Vacunad@</b>: " + sessionStorage.getItem("is_vaccinated");
+    document.querySelector("#perfil-vacunado").setAttribute("aria-label", "Vacunad@: " + sessionStorage.getItem("is_vaccinated"));
     createQr();
     getEvents();
 }
@@ -55,6 +66,7 @@ function getEvents(){
     }).then(responseJSON => {
         if(responseJSON["access_log"].length === 0){
             document.querySelector("#perfil-errores").innerHTML = "Este usuario no ha visitado ningún evento";
+            document.querySelector("#perfil-errores").setAttribute("aria-live", "polite");
         }else{
             var row;
             for(var i = 0; i < responseJSON["access_log"].length; i++){
@@ -71,5 +83,7 @@ function getEvents(){
         }
     })
     .catch(error =>{ 
-        document.querySelector("p#perfil-errores").innerHTML = "No se puede conectar con el servidor"});
+        document.querySelector("p#perfil-errores").innerHTML = "No se puede conectar con el servidor";
+        document.querySelector("p#perfil-errores").setAttribute("aria-live", "polite");
+    });
 }
