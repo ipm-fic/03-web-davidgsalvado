@@ -121,7 +121,7 @@ input:focus{
 .show{
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 
 .container1{
