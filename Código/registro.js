@@ -193,7 +193,6 @@ registroForm.addEventListener('submit', (event) => {
             body: JSON.stringify(data),
         }).then(response => {
             if(!response.ok){
-                alert("entro");
                 document.querySelector("#span-usuario").innerHTML = "El usuario introducido ya existe, por favor introduce un usuario diferente";
                 document.querySelector("#usuario-registro").className = "invalid";
             }else{
